@@ -74,9 +74,15 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 
 			self::loadDependencies();
 
-			// This should run on the `plugins_loaded` action hook. Since the extension loads on the
-			// `plugins_loaded action hook, call immediately.
-			self::loadTextdomain();
+			/**
+			 * This should run on the `plugins_loaded` action hook. Since the extension loads on the
+			 * `plugins_loaded` action hook, load immediately.
+			 */
+			cnText_Domain::register(
+				'connections_certifications',
+				self::$basename,
+				'load'
+			);
 
 			// Add to Connections menu.
 			add_filter( 'cn_submenu', array( __CLASS__, 'addMenu' ) );
@@ -112,50 +118,6 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 		private static function loadDependencies() {
 
 			require_once( self::$path . 'includes/class.widgets.php' );
-		}
-
-		/**
-		 * Load the plugin translation.
-		 *
-		 * Credit: Adapted from Ninja Forms / Easy Digital Downloads.
-		 *
-		 * @access private
-		 * @since  1.0
-		 * @static
-		 *
-		 * @return void
-		 */
-		public static function loadTextdomain() {
-
-			// Plugin textdomain. This should match the one set in the plugin header.
-			$domain = 'connections_certifications';
-
-			// Set filter for plugin's languages directory
-			$languagesDirectory = apply_filters( "cn_{$domain}_languages_directory", dirname( self::$file ) . '/languages/' );
-
-			// Traditional WordPress plugin locale filter
-			$locale   = apply_filters( 'plugin_locale', get_locale(), $domain );
-			$fileName = sprintf( '%1$s-%2$s.mo', $domain, $locale );
-
-			// Setup paths to current locale file
-			$local  = $languagesDirectory . $fileName;
-			$global = WP_LANG_DIR . "/{$domain}/" . $fileName;
-
-			if ( file_exists( $global ) ) {
-
-				// Look in global `../wp-content/languages/{$domain}/` folder.
-				load_textdomain( $domain, $global );
-
-			} elseif ( file_exists( $local ) ) {
-
-				// Look in local `../wp-content/plugins/{plugin-directory}/languages/` folder.
-				load_textdomain( $domain, $local );
-
-			} else {
-
-				// Load the default language files
-				load_plugin_textdomain( $domain, FALSE, $languagesDirectory );
-			}
 		}
 
 		public static function addMenu( $menu ) {
