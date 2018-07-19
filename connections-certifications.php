@@ -96,6 +96,10 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 			// Attach certifications to entry when saving an entry.
 			add_action( 'cn_process_taxonomy-category', array( __CLASS__, 'attachCertifications' ), 9, 2 );
 
+			// Add support for CSV Import
+			add_filter( 'cncsv_map_import_fields', array( __CLASS__, 'import_field_option' ) );
+			add_action( 'cncsv_import_fields', array( __CLASS__, 'import_field' ), 10, 3 );
+
 			// Add the "Certifications" option to the admin settings page.
 			// This is also required so it'll be rendered by $entry->getContentBlock( 'certifications' ).
 			add_filter( 'cn_content_blocks', array( __CLASS__, 'settingsOption') );
@@ -251,6 +255,72 @@ HEREDOC;
 
 				$instance->term->setTermRelationships( $id, array(), 'certification' );
 			}
+		}
+
+		/**
+		 * Add the field to the choices available to map to a CSV file field.
+		 *
+		 * @param array $fields
+		 *
+		 * @return array
+		 */
+		public static function import_field_option( $fields ) {
+
+			$fields['certifications'] = 'Certifications';
+
+			return $fields;
+		}
+
+		/**
+		 * Import certifications and attach them to the entry.
+		 *
+		 * @param int         $id    The entry ID.
+		 * @param array       $row   The parsed data from the CSV file.
+		 * @param cnCSV_Entry $entry An instance of the cnCSV_Entry object.
+		 */
+		public static function import_field( $id, $row, $entry ) {
+
+			$termIDs = array();
+
+			$parsed = $entry->arrayPull( $row, 'certifications', $termIDs );
+
+			if ( ! empty( $parsed ) ) {
+
+				/*
+				 * Convert the supplied certifications to an array and sanitize.
+				 * Apply the same filters added to the core WP default filters for `pre_term_name` so the certification name
+				 * will return a match if it exists.
+				 */
+				$certifications = explode( ',', $parsed );
+				$certifications = array_map( 'sanitize_text_field', $certifications );
+				$certifications = array_map( 'wp_filter_kses', $certifications );
+				$certifications = array_map( '_wp_specialchars', $certifications );
+
+				foreach ( $certifications as $certification ) {
+
+					// Query the db for the term to be added.
+					$term = cnTerm::getBy( 'name', $certification, 'certification' );
+
+					if ( $term instanceof cnTerm_Object ) {
+
+						$termIDs[] = $term->term_id;
+
+					} else {
+
+						// Add the new certification.
+						$insert_result = cnTerm::insert( $certification, 'certification', array( 'slug' => '', 'parent' => '0', 'description' => '' ) );
+
+						if ( ! is_wp_error( $insert_result ) ) {
+
+							$termIDs[] = $insert_result['term_id'];
+						}
+					}
+				}
+
+			}
+
+			// Do not set certification relationships if $termIDs is empty because if updating, it will delete existing relationships.
+			if ( ! empty( $termIDs ) ) Connections_Directory()->term->setTermRelationships( $id, $termIDs, 'certification' );
 		}
 
 		/**
