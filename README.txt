@@ -108,6 +108,16 @@ None yet...
 
 == Changelog ==
 
+= 1.1 07/19/2018 =
+* FEATURE: Add support for the [CSV Import extension](https://connections-pro.com/add-on/csv-import/) so certifications can now be imported and attached to entries.
+* TWEAK: Utilize `cnText_Domain` to load translations.
+* I18N: Add POT file.
+* I18N: Add Dutch (Netherlands) translation. props Age
+* OTHER: Update readme.txt.
+* OTHER: Update plugin header copyright year.
+* OTHER: Update plugin tags.
+* OTHER: Bump requires WP version to 4.5.3 to match requirements of core Connections plugin.
+
 = 1.0 10/26/2017 =
 * Initial release.
 
@@ -115,3 +125,7 @@ None yet...
 
 = 1.0 =
 Initial release.
+
+= 1.1 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+
