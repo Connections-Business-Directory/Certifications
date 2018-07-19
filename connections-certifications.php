@@ -570,7 +570,7 @@ HEREDOC;
 
 				$atts['visited'][] = $parent->parent;
 
-				$chain .= self::getCategoryParents( $parent->parent, $atts );
+				$chain .= self::getTermParents( $parent->parent, 'certification', $atts );
 			}
 
 			if ( $atts['link'] ) {
