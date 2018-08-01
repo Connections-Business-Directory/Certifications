@@ -100,6 +100,12 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 			add_filter( 'cncsv_map_import_fields', array( __CLASS__, 'import_field_option' ) );
 			add_action( 'cncsv_import_fields', array( __CLASS__, 'import_field' ), 10, 3 );
 
+			// Add support for CSV Export.
+			add_filter( 'cn_csv_export_fields_config', array( __CLASS__, 'export_field_config' ) );
+			add_filter( 'cn_csv_export_fields', array( __CLASS__, 'export_field_header' ) );
+			add_filter( 'cn_export_header-certifications', array( __CLASS__, 'export_header' ), 10, 3 );
+			add_filter( 'cn_export_field-certifications', array( __CLASS__, 'export_data' ), 10, 4 );
+
 			// Add the "Certifications" option to the admin settings page.
 			// This is also required so it'll be rendered by $entry->getContentBlock( 'certifications' ).
 			add_filter( 'cn_content_blocks', array( __CLASS__, 'settingsOption') );
@@ -321,6 +327,102 @@ HEREDOC;
 
 			// Do not set certification relationships if $termIDs is empty because if updating, it will delete existing relationships.
 			if ( ! empty( $termIDs ) ) Connections_Directory()->term->setTermRelationships( $id, $termIDs, 'certification' );
+		}
+
+		/**
+		 * Callback for the `cn_csv_export_fields_config` filter.
+		 *
+		 * Add the certifications export configurations option to the export config.
+		 *
+		 * @since 1.2
+		 *
+		 * @param array $fields
+		 *
+		 * @return array
+		 */
+		public static function export_field_config( $fields ) {
+
+			$fields[] = array(
+				'field'  => 'certifications',
+				'type'   => 'certifications',
+				//'fields' => '',
+				//'table'  => CN_ENTRY_TABLE_META,
+				//'types'  => NULL,
+			);
+
+			return $fields;
+		}
+
+		/**
+		 * Callback for the `cn_csv_export_fields` filter.
+		 *
+		 * Set the column header name.
+		 *
+		 * @since 1.2
+		 *
+		 * @param array $fields
+		 *
+		 * @return array
+		 */
+		public static function export_field_header( $fields ) {
+
+			$fields['certifications'] = 'Certifications';
+
+			return $fields;
+		}
+
+		/**
+		 * Callback for the `cn_export_header-certifications` filter.
+		 *
+		 * Returns the CSV file header name for the Certifications column.
+		 *
+		 * @since 1.2
+		 *
+		 * @param string                 $header
+		 * @param array                  $atts
+		 * @param cnCSV_Batch_Export_All $export
+		 *
+		 * @return string
+		 */
+		public static function export_header( $header, $atts, $export ) {
+
+			return 'Certifications';
+		}
+
+		/**
+		 * Callback for the `cn_export_field-certifications` filter.
+		 *
+		 * Export the data.
+		 *
+		 * @since 1.2
+		 *
+		 * @param string                 $data
+		 * @param object                 $entry
+		 * @param array                  $field
+		 * @param cnCSV_Batch_Export_All $export
+		 *
+		 * @return string
+		 */
+		public static function export_data( $data, $entry, $field, $export ) {
+
+			$data = '';
+
+			// Process terms table and list all certifications in a single cell...
+			$names = array();
+
+			$terms = $export->getTerms( $entry->id, 'certification' );
+
+			foreach ( $terms as $term ) {
+
+				$names[] = $term->name;
+			}
+
+			if ( ! empty( $names ) ) {
+
+				$data = $export->escapeAndQuote( implode( ',', $names ) );
+			}
+
+			return $data;
 		}
 
 		/**
