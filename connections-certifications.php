@@ -96,7 +96,7 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 			// Attach certifications to entry when saving an entry.
 			add_action( 'cn_process_taxonomy-category', array( __CLASS__, 'attachCertifications' ), 9, 2 );
 
-			// Add support for CSV Import
+			// Add support for CSV Import.
 			add_filter( 'cncsv_map_import_fields', array( __CLASS__, 'import_field_option' ) );
 			add_action( 'cncsv_import_fields', array( __CLASS__, 'import_field' ), 10, 3 );
 
