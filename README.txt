@@ -108,6 +108,10 @@ None yet...
 
 == Changelog ==
 
+= 1.2 08/01/2018 =
+* FEATURE: Add support for CSV export.
+* BUG: Correct fatal bug. Calling nonexistent method.
+
 = 1.1 07/19/2018 =
 * FEATURE: Add support for the [CSV Import extension](https://connections-pro.com/add-on/csv-import/) so certifications can now be imported and attached to entries.
 * TWEAK: Utilize `cnText_Domain` to load translations.
@@ -129,3 +133,5 @@ Initial release.
 = 1.1 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
 
+= 1.2 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
