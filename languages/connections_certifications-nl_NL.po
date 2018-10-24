@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Connections Business Directory Certifications\n"
-"POT-Creation-Date: 2018-07-19 10:49-0400\n"
-"PO-Revision-Date: 2018-07-19 10:49-0400\n"
+"POT-Creation-Date: 2018-07-02 09:54-0400\n"
+"PO-Revision-Date: 2018-10-08 11:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.9\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: connections-certifications.php\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: connections-certifications.php:131 connections-certifications.php:132
-#: connections-certifications.php:180 connections-certifications.php:333
+#: connections-certifications.php:165 connections-certifications.php:166
+#: connections-certifications.php:214 connections-certifications.php:305
 #: includes/admin/pages/certifications.php:267 includes/class.widgets.php:74
 #: includes/class.widgets.php:126
 msgid "Certifications"
@@ -30,7 +30,7 @@ msgstr "Certificaten"
 
 #: includes/admin/pages/certifications.php:40
 msgid "You do not have sufficient permissions to access this page."
-msgstr "U heeft onvoldoende rechten om deze pagina te bekijken."
+msgstr "Je hebt onvoldoende rechten om deze pagina te bekijken."
 
 #: includes/admin/pages/certifications.php:89
 msgid "Edit Certification"
@@ -117,7 +117,7 @@ msgstr "Titel:"
 
 #. Plugin Name of the plugin/theme
 msgid "Connections Business Directory Certifications"
-msgstr "Connections Business Directory Certificaten"
+msgstr "Connections Business Adressenboek Certificaten"
 
 #. Plugin URI of the plugin/theme
 msgid "https://connections-pro.com/documentation/certifications/"
@@ -128,7 +128,7 @@ msgid ""
 "An extension for the Connections Business Directory plugin which adds the "
 "ability to add and assign certifications to your business directory entries."
 msgstr ""
-"Een extensie voor de Connections Business Directory plugin waarmee u de "
+"Een extensie voor de Connections Business Adressenboek plugin waarmee je de "
 "mogelijkheid krijgt om certificaten toe te voegen en deze toe te wijzen aan "
 "de directory invoeren."
 
