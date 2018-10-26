@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.3 08/01/2018 =
+* FEATURE: Add support for the Gravity Forms Connector.
+* I18N: Update Dutch (Netherlands) translation files. Props Age!
+
 = 1.2 08/01/2018 =
 * FEATURE: Add support for CSV export.
 * BUG: Correct fatal bug. Calling nonexistent method.
