@@ -130,6 +130,38 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 			require_once( self::$path . 'includes/class.widgets.php' );
 		}
 
+		/**
+		 * Register the taxonomy with the Gravity Forms Connector.
+		 *
+		 * @since 1.3
+		 *
+		 * @param array $taxonomy
+		 *
+		 * @return array
+		 */
+		public static function registerCertificationsTaxonomy( $taxonomy ) {
+
+			$taxonomy['certification'] = array(
+				'labels' => array(
+					'name'          => _x(
+						'Certifications',
+						'Taxonomy field plural name.',
+						'connections_gravity_forms'
+					),
+					'all_items'     => __( 'All Certifications', 'connections_gravity_forms' ),
+					'select_items'  => __( 'Select Certifications', 'connections_gravity_forms' ),
+					'singular_name' => _x(
+						'Certification',
+						'Taxonomy field singular name.',
+						'connections_gravity_forms'
+					),
+					'field_label'   => __( 'Entry Certifications', 'connections_gravity_forms' ),
+				),
+			);
+
+			return $taxonomy;
+		}
+
 		public static function addMenu( $menu ) {
 
 			$menu[66]  = array(
@@ -721,5 +753,9 @@ HEREDOC;
 	 * we'll load with priority 11 so we know Connections will be loaded and ready first.
 	 */
 	add_action( 'plugins_loaded', 'Connections_Certifications', 11 );
+
+	// Support the Gravity Form Connector, register Disciplines Taxonomy.
+	// NOTE: Must add filter before the `plugins_loaded` action.
+	add_filter( 'Connections_Directory\Connector\Gravity_Forms\Register_Taxonomy_Fields', array( 'Connections_Certifications', 'registerCertificationsTaxonomy' ) );
 
 }
