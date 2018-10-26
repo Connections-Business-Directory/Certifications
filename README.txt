@@ -108,6 +108,10 @@ None yet...
 
 == Changelog ==
 
+= 1.3 08/01/2018 =
+* FEATURE: Add support for the Gravity Forms Connector.
+* I18N: Update Dutch (Netherlands) translation files. Props Age!
+
 = 1.2 08/01/2018 =
 * FEATURE: Add support for CSV export.
 * BUG: Correct fatal bug. Calling nonexistent method.
@@ -131,7 +135,10 @@ None yet...
 Initial release.
 
 = 1.1 =
-It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3 PHP version >= 7.1 recommended.
 
 = 1.2 =
-It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.4 PHP version >= 7.1 recommended.
+
+= 1.3 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.4 PHP version >= 7.1 recommended.
