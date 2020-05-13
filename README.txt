@@ -1,6 +1,6 @@
 === Connections Business Directory Certifications ===
 Contributors: shazahm1@hotmail.com
-Donate link: http://connections-pro.com/
+Donate link: https://connections-pro.com/
 Tags: business directory, certifications, directory
 Requires at least: 4.5.3
 Tested up to: 4.9

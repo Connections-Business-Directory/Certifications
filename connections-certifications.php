@@ -6,7 +6,7 @@
  * @category  Extension
  * @author    Steven A. Zahm
  * @license   GPL-2.0+
- * @link      http://connections-pro.com
+ * @link      https://connections-pro.com
  * @copyright 2020 Steven A. Zahm
  *
  * @wordpress-plugin
@@ -15,7 +15,7 @@
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to add and assign certifications to your business directory entries.
  * Version:           1.3
  * Author:            Steven A. Zahm
- * Author URI:        http://connections-pro.com
+ * Author URI:        https://connections-pro.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       connections_certifications
