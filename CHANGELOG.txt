@@ -1,6 +1,6 @@
 == Changelog ==
 
-= 1.3 05/13/2020 =
+= 1.4 05/13/2020 =
 * I18N: Add German (Germany) translation.
 * OTHER: Update plugin naming to match current convention.
 * OTHER: Update copyright year.
