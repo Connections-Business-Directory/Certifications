@@ -108,6 +108,16 @@ None yet...
 
 == Changelog ==
 
+= 1.4 05/13/2020 =
+* I18N: Add German (Germany) translation.
+* OTHER: Update plugin naming to match current convention.
+* OTHER: Update copyright year.
+* OTHER: Update plugin tags.
+* OTHER: Bump "Tested up to" to version 5.4.
+* OTHER: Bump "Requires PHP" to version 5.6.20.
+* OTHER: Bump "Requires at least" to version 4.7.12.
+* OTHER: Update URLs to `https`.
+
 = 1.3 08/01/2018 =
 * FEATURE: Add support for the Gravity Forms Connector.
 * I18N: Update Dutch (Netherlands) translation files. Props Age!
@@ -142,3 +152,6 @@ It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP
 
 = 1.3 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.4 PHP version >= 7.1 recommended.
+
+= 1.4 =
+It is recommended to backup before updating. Requires WordPress >= 4.7.12 and PHP >= 5.6.20 PHP version >= 7.1 recommended.
