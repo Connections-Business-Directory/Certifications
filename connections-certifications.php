@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Business Directory Extension - Certifications
  * Plugin URI:        https://connections-pro.com/documentation/certifications/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to add and assign certifications to your business directory entries.
- * Version:           1.4
+ * Version:           1.4.1
  * Author:            Steven A. Zahm
  * Author URI:        https://connections-pro.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Connections_Certifications' ) ) {
 
 	final class Connections_Certifications {
 
-		const VERSION = '1.4';
+		const VERSION = '1.4.1';
 
 		/**
 		 * @var string The absolute path this this file.
