@@ -7,13 +7,13 @@ Tested up to: 5.4
 Requires PHP: 5.6.20
 Stable tag: 1.4
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 An extension for the Connections Business Directory plugin which adds the ability to add and assign certifications to your business directory entries.
 
 == Description ==
 
-This is an extension plugin for the [Connections Business Directory plugin](http://wordpress.org/plugins/connections/) please be sure to install and active it before adding this plugin.
+This is an extension plugin for the [Connections Business Directory plugin](https://wordpress.org/plugins/connections/) please be sure to install and active it before adding this plugin.
 
 What does this plugin do? It adds the ability to add certifications and assign them to you business directory entries.
 
