@@ -108,6 +108,14 @@ None yet...
 
 == Changelog ==
 
+= 1.4.1 05/04/2021 =
+* TWEAK: Remove use of `create_function()`.
+* OTHER: Update copyright year.
+* OTHER: Change `http` to `https` in links.
+* DEV: Correct code alignment.
+* DEV: phpDoc correction.
+* DEV: Update README.txt plugin header.
+
 = 1.4 05/13/2020 =
 * I18N: Add German (Germany) translation.
 * OTHER: Update plugin naming to match current convention.
@@ -155,3 +163,6 @@ It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP
 
 = 1.4 =
 It is recommended to backup before updating. Requires WordPress >= 4.7.12 and PHP >= 5.6.20 PHP version >= 7.1 recommended.
+
+= 1.4.1 =
+It is recommended to backup before updating. Requires WordPress >= 5.1 and PHP >= 5.6.20 PHP version >= 7.2 recommended.
