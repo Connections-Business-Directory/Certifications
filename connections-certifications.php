@@ -474,18 +474,17 @@ HEREDOC;
 		}
 
 		/**
-		 * Callback for the `cn_entry_output_content-{id}` filter in @see cnOutput::getCategoryBlock()
+		 * Callback for the `cn_entry_output_content-{id}` action.
+		 * @see cnOutput::getContentBlock()
 		 *
 		 * Renders the Certifications content block.
-		 * Modelled after the @see cnOutput::getCategoryBlock()
 		 *
-		 * @access  private
-		 * @since   1.0
-		 * @static
+		 * @internal
+		 * @since 1.0
 		 *
-		 * @param  cnEntry    $object
-		 * @param  array      $atts     The shortcode atts array passed from the calling action.
-		 * @param  cnTemplate $template
+		 * @param cnEntry    $object
+		 * @param array      $atts     The shortcode atts array passed from the calling action.
+		 * @param cnTemplate $template
 		 */
 		public static function block( $object, $atts, $template ) {
 
