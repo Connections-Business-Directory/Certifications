@@ -2,8 +2,8 @@
 Contributors: shazahm1@hotmail.com
 Donate link: https://connections-pro.com/
 Tags: business directory, certifications, directory
-Requires at least: 4.7.12
-Tested up to: 5.4
+Requires at least: 5.1
+Tested up to: 5.7
 Requires PHP: 5.6.20
 Stable tag: 1.4
 License: GPLv2 or later
